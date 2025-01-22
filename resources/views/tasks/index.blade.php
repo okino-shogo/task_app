@@ -14,5 +14,8 @@
             <li><a href="{{ route('tasks.show', $task) }}">{{ $task->title }}</a></li>
         @endforeach
     </ul>
+
+    <!-- 新規登録画面へジャンプする -->
+    <button onclick='location.href="{{ route("tasks.create") }}"'>登録する</button>
 </body>
 </html>
