@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\TaskRequest;
 use App\Models\Task;
 
 class TaskController extends Controller
@@ -16,11 +16,8 @@ class TaskController extends Controller
         return view('tasks.index', ['tasks' => $tasks]);
     }
 
-    public function create()
-    {
-        return view('tasks.create');
-    }
-    public function store(Request $request)
+
+    public function store(TaskRequest $request)
     {
         // インスタンスの作成
         $task = new Task();
@@ -48,7 +45,7 @@ class TaskController extends Controller
         $task = Task::find($id);
         return view('tasks.edit', ['task' => $task]);
     }
-    public function update(Request $request, $id)
+    public function update(TaskRequest $request, $id)
     {
         // ここはidで探して持ってくる以外はstoreと同じ
         $task = Task::find($id);

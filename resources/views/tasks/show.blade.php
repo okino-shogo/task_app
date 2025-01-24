@@ -10,7 +10,7 @@
 <body>
     <h1>{{ $task->title }}</h1>
     <p>{!! nl2br(e($task->body)) !!}</p>
-    <a href="{{ route('tasks.index') }}">一覧へ戻る</a>
+    {{-- <a href="{{ route('tasks.index') }}">一覧へ戻る</a> --}}
 
     <div class="button-group">
         <!-- $memoのidを元に編集ページへ遷移する -->
@@ -19,6 +19,7 @@
             @csrf
             @method('DELETE')
             <input type="submit" value="削除する" onclick="if(!confirm('削除しますか？')){return false};">
+        <button onclick='location.href="{{ route("tasks.index") }}"'>一覧へ戻る</button>
         </form>
     </div>
 </body>
